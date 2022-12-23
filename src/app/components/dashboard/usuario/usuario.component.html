@@ -1,0 +1,88 @@
+<mat-toolbar>
+    <span>{{operacion }} Usuario</span>
+</mat-toolbar>
+<app-spinner *ngIf="loading"></app-spinner>
+<div class="container">
+    <mat-card style="margin-top: 10px;">
+        <form [formGroup]="form" (ngSubmit)="altaUsuario()">
+            <mat-grid-list cols="1"  rowHeight="60px">
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="form" >
+                        <mat-label>Nombre</mat-label>
+                        <input formControlName="nombre" matInput autocomplete="off">
+                    </mat-form-field>
+                    <div class="error">
+                        <span *ngIf="form.get('nombre')?.hasError('required') && form.get('nombre')?.touched">
+                            Campo <strong>requerido.</strong>
+                        </span>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="form">
+                        <mat-label>Apellido</mat-label>
+                        <input formControlName="apellido" matInput autocomplete="off">
+                    </mat-form-field>
+                    <div class="error">
+                        <span *ngIf="form.get('apellido')?.hasError('required') && form.get('apellido')?.touched">
+                            Campo <strong>requerido.</strong>
+                        </span>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="form">
+                        <mat-label>Email</mat-label>
+                        <input formControlName="correo_electronico" matInput autocomplete="off">
+                    </mat-form-field>
+                    <div class="error">
+                        <span *ngIf="form.get('correo_electronico')?.hasError('email') && form.get('correo_electronico')?.touched">
+                            Campo <strong>requerido.</strong>
+                        </span>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="form">
+                        <input formControlName="fecha_nacimiento" matInput [matDatepicker]="picker">
+                        <mat-label>Fecha de Nacimiento</mat-label>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    <div class="error">
+                        <span *ngIf="form.get('fecha_nacimiento')?.hasError('required') && form.get('fecha_nacimiento')?.touched">
+                            Campo <strong>requerido.</strong>
+                        </span>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="form">
+                        <mat-label>Telefono</mat-label>
+                        <input formControlName="telefono" matInput autocomplete="off">
+                    </mat-form-field>
+                    <div class="error">
+                        <span *ngIf="form.get('telefono')?.hasError('required') && form.get('telefono')?.touched">
+                            Campo <strong>requerido.</strong>
+                        </span>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="form">
+                        <mat-label>Pais Residencia</mat-label>
+                        <input formControlName="pais_residencia" matInput autocomplete="off">
+                    </mat-form-field>
+                    <div class="error">
+                        <span *ngIf="form.get('pais_residencia')?.hasError('required') && form.get('pais_residencia')?.touched">
+                            Campo <strong>requerido.</strong>
+                        </span>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-slide-toggle formControlName="info" class="form">¿Desea recibir
+                        información?</mat-slide-toggle>
+                </mat-grid-tile>
+
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <button mat-flat-button type="submit" color="primary"  class="form">{{btOperacion}} Usuario</button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+    </mat-card>
+</div>
