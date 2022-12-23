@@ -40,3 +40,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+/BackEnd/BackEndEncode/BackEndEncode/bin/Debug/net5.0
+/.vs
+/BackEnd/BackEndEncode/BackEndEncode/obj
